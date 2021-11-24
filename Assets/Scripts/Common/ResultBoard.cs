@@ -11,12 +11,12 @@ public class ResultBoard : MonoBehaviour
     
     void Start()
     {
-        SetInit();
+        SetResult();
         SetButtonEvent();
         CreateResult();
         SetRendererRtyBtn();
     }    
-    void SetInit()
+    void SetResult()
     {
         rank_Text = Resources.Load("Rank_Text") as GameObject;        
 
@@ -25,7 +25,7 @@ public class ResultBoard : MonoBehaviour
         GameManager = GameObject.Find("GameManager").GetComponent<HorizontalGame.HorizontalGame>();        
 
         Singleton.singleton.UpdateScore(GameManager.score);
-        Singleton.singleton.SetRankSort();
+        Singleton.singleton.RankSort();
     }
     public void CreateResult()
     {
@@ -41,8 +41,9 @@ public class ResultBoard : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             Text _rank = rank_Text.GetComponent<Text>();
-            score = (Singleton.singleton.sceneNum == SceneNum.flappy) ? players[i].FlappybestScore : players[i].AngrybestScore;            
-            _rank.text = $"Rank : {i + 1}   Name : {players[i].nickName}   Score : {score}";
+            score = players[i].GetSelectPlayerScore(SceneKind.GetGameScene());
+            Debug.Log("Result = " + SceneKind.GetGameScene());
+            _rank.text = $"Rank : {i + 1}   Name : {players[i].PlayerName}   Score : {score}";
             _rank.GetComponent<RectTransform>().anchoredPosition = new Vector2(_rank.GetComponent<RectTransform>().anchoredPosition.x, height);
             Instantiate(rank_Text, gameObject.transform);
             height -= margin;
@@ -77,15 +78,15 @@ public class ResultBoard : MonoBehaviour
         if (Singleton.singleton.CheckCoin())
         {
             Singleton.singleton.ConsumCoin();
-            Singleton.singleton.Fade_In(Singleton.singleton.sceneNum);
+            GameManager.CreateFade("in");            
             Destroy(gameObject);
         }
     }
 
     void MainBtn()
     {
-        Singleton.singleton.sceneNum = SceneNum.menu;
-        Singleton.singleton.Fade_In(SceneNum.menu);
+        SceneKind.sceneNum = ESceneKind.menu;
+        GameManager.CreateFade("in");
         Destroy(gameObject);
     }    
 }

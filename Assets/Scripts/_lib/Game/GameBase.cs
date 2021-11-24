@@ -4,7 +4,7 @@ using UnityEngine.UI;
 namespace HorizontalGame
 {
     public enum GameState { intro, start, end }
-    public class GameBase : MonoBehaviour
+    public class GameBase : GameBaseUI
     {
         public int life { get; private set; }
         public int score { get; private set; }
@@ -16,7 +16,7 @@ namespace HorizontalGame
         public GameBase()
         {
             isGameOver = false;
-            life = 3; score = 0;
+            life = 1; score = 0;
             time = 0f;
         }
         public void UpdateLife()

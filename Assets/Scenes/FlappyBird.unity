@@ -1422,6 +1422,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6a7475ca3a5fe43bcffcc950329b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  introStart: 1
+  introCount: 0
+  fade: {fileID: 127452827929182534, guid: fbae7ea8c05c1de4583930650dead79c, type: 3}
+  result: {fileID: 7903524708015558518, guid: e7bab9ce762c4cd4888260189b8cdf00, type: 3}
+  intro: {fileID: 7233709867149837192, guid: 68768aff99c3aa84f84e5505d11f3c05, type: 3}
+  gameName: 
 --- !u!4 &1840520456
 Transform:
   m_ObjectHideFlags: 0

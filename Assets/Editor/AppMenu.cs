@@ -66,6 +66,13 @@ public class AppMenu : MonoBehaviour
     {
         Debug.Log(PlayerPrefs.GetString("Player", "Player Null"));
     }
+    [MenuItem("Create Prefabs/Alert Create", false, 0)]
+    static void CreateAlert()
+    {
+        GameObject alert = Resources.Load("AlertUI") as GameObject;
+        Transform transform = GameObject.Find("Canvas").transform;
+        Instantiate(alert,transform);
+    }
     //[MenuItem("PlayerPrefs/DebugPlayerPrefs", false, 5)]
     //static void DebugPlayerPrefs()
     //{        

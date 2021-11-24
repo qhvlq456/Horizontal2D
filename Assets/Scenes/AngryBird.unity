@@ -725,7 +725,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37de87db70350864194f8407ed3a2630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameManager: {fileID: 0}
   _ball: {fileID: 0}
 --- !u!1 &919685670
 GameObject:
@@ -1337,6 +1336,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3664bb19b4478d4bbe4dd94ea84376d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fade: {fileID: 127452827929182534, guid: fbae7ea8c05c1de4583930650dead79c, type: 3}
+  result: {fileID: 7903524708015558518, guid: e7bab9ce762c4cd4888260189b8cdf00, type: 3}
+  intro: {fileID: 7233709867149837192, guid: 68768aff99c3aa84f84e5505d11f3c05, type: 3}
+  gameName: 
   _birdCount: 0
   tempScore: 0
 --- !u!114 &1868655636

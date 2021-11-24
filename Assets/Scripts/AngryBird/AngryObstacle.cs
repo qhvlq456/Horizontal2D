@@ -48,7 +48,7 @@ public class AngryObstacle : MonoBehaviour
         {
             for (int j = 1; j < col; j++)
             {
-                randomArrPos[i, j] += randomArrPos[i, j - 1]; // 아 이거 dp처럼 푼거다
+                randomArrPos[i, j] += randomArrPos[i, j - 1];
                 randomArrPos[i, j] += i == 0 ? yInterval : xInterval;
             }
         }

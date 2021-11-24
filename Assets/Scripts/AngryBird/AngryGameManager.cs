@@ -16,10 +16,8 @@ public class AngryGameManager : HorizontalGame.HorizontalGame
     public int _birdCount, tempScore;
     float[] gameStateArr = new float[] 
     {StaticVariable.introTime, StaticVariable.startTime, StaticVariable.endTime };
-    void Start()
-    {
-        SetGame();
-        Singleton.singleton.Fade_Out(_transform);
+    public override void Awake() {
+        SetManager();
     }
 
     void Update()
@@ -29,11 +27,11 @@ public class AngryGameManager : HorizontalGame.HorizontalGame
         NextGameState();
     }
 
-    void SetGame()
+    void SetManager()
     {
         gameName = "AngryBird";
         startBallpos = GameObject.Find("CatapultPivot").gameObject.transform;
-        _transform = GameObject.Find("Main_cns").GetComponent<Canvas>().transform;
+        canvas = GameObject.Find("Main_cns").GetComponent<Canvas>().transform;
         scoreText = GameObject.Find("score_Text").GetComponent<Text>();
         timeText = GameObject.Find("time_Text").GetComponent<Text>();
         lifeText = GameObject.Find("life_Text").GetComponent<Text>();
@@ -41,9 +39,7 @@ public class AngryGameManager : HorizontalGame.HorizontalGame
         introCount = (int)StaticVariable.introTime;
 
         obstacle = GetComponent<AngryObstacle>();
-
-        _intro = Resources.Load("Intro") as GameObject;
-        _result = Resources.Load("Result_Panel") as GameObject;
+        
         ball_Prefebs = Resources.Load("Angry/Ball") as GameObject;
 
         _birdCount = StaticVariable.birdCount;
@@ -52,6 +48,7 @@ public class AngryGameManager : HorizontalGame.HorizontalGame
 
     public override void IntroCycle()
     {
+        base.IntroCycle();
         _objectCamera.SetInit();
         ObstacleBundle();
         CreateBall();
@@ -84,18 +81,18 @@ public class AngryGameManager : HorizontalGame.HorizontalGame
     {
         if (leftTime == 0)
             MinusLife();
-        isIntro = true;
+        introStart = true;
     }
-    void NextGameState()
+    public override void NextGameState()
     {
         leftTime += Time.deltaTime;
         if (leftTime < gameStateArr[currentStateIdx]) return;
-        NextState();
+        base.NextGameState();
         leftTime = 0f;
     }
     public void OnPassStart()
     {
-        NextState();
+        base.NextGameState();
         leftTime = 0f;
     }
     void CreateBall()

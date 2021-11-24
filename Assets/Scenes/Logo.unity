@@ -777,7 +777,7 @@ GameObject:
   - component: {fileID: 1583606201}
   - component: {fileID: 1583606200}
   m_Layer: 5
-  m_Name: Main_cns
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -897,11 +897,8 @@ MonoBehaviour:
   CONSUM_COIN: 20
   ADD_COIN: 10
   DEFAULT_COIN: 100
-  isFade: 0
   sceneNum: 0
   loginCode: 0
-  fade_Prefebs: {fileID: 0}
-  _fade: {fileID: 0}
 --- !u!4 &1652398882
 Transform:
   m_ObjectHideFlags: 0
@@ -959,7 +956,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21e4645caafa0e4ebf4a3b454f15851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Practice_Image: {fileID: 0}
+  fade: {fileID: 127452827929182534, guid: fbae7ea8c05c1de4583930650dead79c, type: 3}
+  result: {fileID: 7903524708015558518, guid: e7bab9ce762c4cd4888260189b8cdf00, type: 3}
+  intro: {fileID: 7233709867149837192, guid: 68768aff99c3aa84f84e5505d11f3c05, type: 3}
 --- !u!1 &1710434913
 GameObject:
   m_ObjectHideFlags: 0

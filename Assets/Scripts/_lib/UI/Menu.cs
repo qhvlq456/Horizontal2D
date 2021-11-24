@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace HorizontalGame
 {  
-    public abstract class Menu : MonoBehaviour
+    public abstract class Menu : GameBaseUI
     {
         protected PlayerInfo player;
         public Text titleText { protected get; set; }
@@ -17,7 +17,7 @@ namespace HorizontalGame
         }
         public void IsLogin(PlayerInfo _player)
         {
-            if (_player == null) return;
+            if (_player.playerName == null || _player.playerName == "") return;
             player = _player;
             isLogin = true;
         }

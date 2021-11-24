@@ -9,11 +9,13 @@ public class ObjectCamera : ReturnHorizontal
     public GameObject _ball;
     void Start()
     {
-        SetGame();
+        SetCamera();
     }
 
     void Update()
     {
+        if(GameManager.isGameOver) return;
+        
         if (GameManager.gameState == GameState.intro)
         {
             Move();
@@ -28,7 +30,7 @@ public class ObjectCamera : ReturnHorizontal
         }
     }
 
-    void SetGame()
+    void SetCamera()
     {        
         coolTime = StaticVariable.introTime; // 3second
         speed = 20.6f;
